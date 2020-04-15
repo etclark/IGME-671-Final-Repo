@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 613060378875714941}
   - component: {fileID: 6689394087353256158}
   m_Layer: 10
-  m_Name: BloodCell
+  m_Name: BloodCellTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,6 +195,9 @@ MonoBehaviour:
   health: 3
   pointValue: -5
   DestroyedEffect: {fileID: 0}
+  deathEvent: event:/Blood Cell/blood_cell_death
+  hitEvent: event:/Blood Cell/blood_cell_hit
+  idleEvent: event:/Blood Cell/blood_cell_idle
   HitPlayer: {fileID: 5180989449417381527}
   IdleSource: {fileID: 1794190175530118467}
 --- !u!136 &6689394087353256158

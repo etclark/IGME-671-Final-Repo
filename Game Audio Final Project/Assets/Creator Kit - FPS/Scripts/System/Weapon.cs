@@ -11,6 +11,14 @@ using UnityEditor;
 
 public class Weapon : MonoBehaviour
 {
+    //FMOD VARIABLES
+    [FMODUnity.EventRef]
+    public string eventPath1;
+    [FMODUnity.EventRef]
+    public string eventPath2;
+    private FMOD.Studio.EventInstance eventRef1;
+    private FMOD.Studio.EventInstance eventRef2;
+
     static RaycastHit[] s_HitInfoBuffer = new RaycastHit[8];
 
     public enum TriggerType
@@ -39,13 +47,6 @@ public class Weapon : MonoBehaviour
         public int projectilePerShot = 1;
         public float screenShakeMultiplier = 1.0f;
     }
-
-    //FMOD VARIABLES
-    [FMODUnity.EventRef]
-    public string eventPath1;
-    public string eventPath2;
-    private FMOD.Studio.EventInstance eventRef1;
-    private FMOD.Studio.EventInstance eventRef2;
 
     public TriggerType triggerType = TriggerType.Manual;
     public WeaponType weaponType = WeaponType.Raycast;
@@ -145,8 +146,8 @@ public class Weapon : MonoBehaviour
         }
 
         //FMOD INITIALIZE EVENT
-        eventRef1 = FMODUnity.RuntimeManager.CreateInstance(eventPath1);
-        eventRef2 = FMODUnity.RuntimeManager.CreateInstance(eventPath2);
+        //eventRef1 = FMODUnity.RuntimeManager.CreateInstance(eventPath1);
+        //eventRef2 = FMODUnity.RuntimeManager.CreateInstance(eventPath2);
     }
 
     public void PickedUp(Controller c)
@@ -231,7 +232,7 @@ public class Weapon : MonoBehaviour
         m_Source.PlayOneShot(FireAudioClip);
 
         //PLAY FMOD SHOOTING SOUNDS
-        eventRef1.start();
+        //eventRef1.start();
 
         CameraShaker.Instance.Shake(0.2f, 0.05f * advancedSettings.screenShakeMultiplier);
 
@@ -338,7 +339,7 @@ public class Weapon : MonoBehaviour
             m_Source.PlayOneShot(ReloadAudioClip);
 
             //PLAY FMOD RELOAD SOUNDS
-            eventRef2.start();
+            //eventRef2.start();
         }
 
         int chargeInClip = Mathf.Min(remainingBullet, clipSize - m_ClipContent);
@@ -387,8 +388,8 @@ public class Weapon : MonoBehaviour
         }
 
         //UPDATE WHERE SOUND COMES FROM
-        eventRef1.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
-        eventRef2.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        //eventRef1.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        //eventRef2.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
     }
 
     void UpdateControllerState()

@@ -11,6 +11,18 @@ public class Target : MonoBehaviour
 
     public ParticleSystem DestroyedEffect;
 
+    //FMOD VARIABLES
+    [FMODUnity.EventRef]
+    public string deathEvent;
+    [FMODUnity.EventRef]
+    public string hitEvent;
+    [FMODUnity.EventRef]
+    public string idleEvent;
+
+    private FMOD.Studio.EventInstance deathRef;
+    private FMOD.Studio.EventInstance hitRef;
+    private FMOD.Studio.EventInstance idleRef;
+
     [Header("Audio")]
     public RandomPlayer HitPlayer;
     public AudioSource IdleSource;
@@ -33,6 +45,19 @@ public class Target : MonoBehaviour
         m_CurrentHealth = health;
         if(IdleSource != null)
             IdleSource.time = Random.Range(0.0f, IdleSource.clip.length);
+
+        //FMOD INITIALIZE EVENTS
+        deathRef = FMODUnity.RuntimeManager.CreateInstance(deathEvent);
+        hitRef = FMODUnity.RuntimeManager.CreateInstance(hitEvent);
+        idleRef = FMODUnity.RuntimeManager.CreateInstance(idleEvent);
+
+        //INITIALIZE WHERE SOUND COMES FROM
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(deathRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(hitRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(idleRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
+
+        //PLAY TARGET IDLE
+        idleRef.start();
     }
 
     public void Got(float damage)
@@ -41,6 +66,8 @@ public class Target : MonoBehaviour
         
         if(HitPlayer != null)
             HitPlayer.PlayRandom();
+        //PLAY TARGET IS HIT
+            hitRef.start();
         
         if(m_CurrentHealth > 0)
             return;
@@ -54,6 +81,10 @@ public class Target : MonoBehaviour
             source.transform.position = position;
             source.pitch = HitPlayer.source.pitch;
             source.PlayOneShot(HitPlayer.GetRandomClip());
+            //PLAY TARGET DEATH
+            deathRef.start();
+            //STOP TARGET IDLE
+            idleRef.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
 
         if (DestroyedEffect != null)

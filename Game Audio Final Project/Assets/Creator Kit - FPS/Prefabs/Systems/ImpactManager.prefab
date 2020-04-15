@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dda63b42405f5b4ca6fc7b721735617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSourceTemplate: {fileID: 8672793591695520991}
+  impactPath: event:/Misc/misc_bullet_hit
   DefaultSettings:
     ParticlePrefab: {fileID: 8608183087981362248, guid: bb4e6b12de56c2a4f8db55c47797b43c,
       type: 3}

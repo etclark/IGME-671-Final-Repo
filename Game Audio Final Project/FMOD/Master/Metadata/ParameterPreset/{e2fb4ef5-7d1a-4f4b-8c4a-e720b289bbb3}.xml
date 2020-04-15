@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{e2fb4ef5-7d1a-4f4b-8c4a-e720b289bbb3}">
+		<property name="name">
+			<value>Rifle Firing</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a04b9396-070e-47ea-9fc6-9ac13d692050}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9504dfe8-fe46-4235-b8b6-a1ca79242c61}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9504dfe8-fe46-4235-b8b6-a1ca79242c61}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

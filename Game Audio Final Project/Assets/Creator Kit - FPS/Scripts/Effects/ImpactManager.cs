@@ -7,6 +7,12 @@ using UnityEngine;
 /// </summary>
 public class ImpactManager : MonoBehaviour
 {
+    //FMOD VARIABLES
+    [FMODUnity.EventRef]
+    public string impactPath;
+
+    private FMOD.Studio.EventInstance impactRef;
+
     [System.Serializable]
     public class ImpactSetting
     {
@@ -36,6 +42,9 @@ public class ImpactManager : MonoBehaviour
             PoolSystem.Instance.InitPool(impactSettings.ParticlePrefab, 32);
             m_SettingLookup.Add(impactSettings.TargetMaterial, impactSettings);
         }
+
+        //FMOD INITIALIZE EVENTS
+        impactRef = FMODUnity.RuntimeManager.CreateInstance(impactPath);
     }
 
     public void PlayImpact(Vector3 position, Vector3 normal, Material material = null)
@@ -50,8 +59,14 @@ public class ImpactManager : MonoBehaviour
         sys.gameObject.transform.position = position;
         sys.gameObject.transform.forward = normal;
 
+        //INITIALIZE WHERE SOUND COMES FROM
+        impactRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+
         sys.gameObject.SetActive(true);
         sys.Play();
+
+        //PLAY IMPACT SOUND
+        impactRef.start();
 
         var source = WorldAudioPool.GetWorldSFXSource();
 

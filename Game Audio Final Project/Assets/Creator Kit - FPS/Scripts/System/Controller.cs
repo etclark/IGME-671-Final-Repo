@@ -21,9 +21,19 @@ public class Controller : MonoBehaviour
 
     //FMOD VARIABLES
     [FMODUnity.EventRef]
-    public string eventPath;
-    private FMOD.Studio.EventInstance eventRef;
-    
+    public string walkPath;
+    [FMODUnity.EventRef]
+    public string jumpPath;
+    [FMODUnity.EventRef]
+    public string landPath1;
+    [FMODUnity.EventRef]
+    public string landPath2;
+
+    private FMOD.Studio.EventInstance walkRef;
+    private FMOD.Studio.EventInstance jumpRef;
+    private FMOD.Studio.EventInstance landRef1;
+    private FMOD.Studio.EventInstance landRef2;
+
 
     public Camera MainCamera;
     public Camera WeaponCamera;
@@ -108,8 +118,12 @@ public class Controller : MonoBehaviour
         m_VerticalAngle = 0.0f;
         m_HorizontalAngle = transform.localEulerAngles.y;
 
-        //FMOD INITIALIZE EVENT
-        eventRef = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        //FMOD INITIALIZE EVENTS
+        walkRef = FMODUnity.RuntimeManager.CreateInstance(walkPath);
+        jumpRef = FMODUnity.RuntimeManager.CreateInstance(jumpPath);
+        landRef1 = FMODUnity.RuntimeManager.CreateInstance(landPath1);
+        landRef2 = FMODUnity.RuntimeManager.CreateInstance(landPath2);
+
         //FMODUnity.RuntimeManager.AttachInstanceToGameObject(eventRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
         //eventRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
     }
@@ -158,6 +172,7 @@ public class Controller : MonoBehaviour
                 m_Grounded = false;
                 loosedGrounding = true;
                 FootstepPlayer.PlayClip(JumpingAudioCLip, 0.8f,1.1f);
+                jumpRef.start();
             }
             
             bool running = m_Weapons[m_CurrentWeapon].CurrentState == Weapon.WeaponState.Idle && Input.GetButton("Run");
@@ -247,11 +262,16 @@ public class Controller : MonoBehaviour
         if (!wasGrounded && m_Grounded)
         {
             FootstepPlayer.PlayClip(LandingAudioClip, 0.8f,1.1f);
+            landRef1.start();
+            landRef2.start();
         }
 
         //UPDATE WHERE SOUND COMES FROM
         Vector3 offset = new Vector3 (0.0f,1.5f,0.0f);//1.5 units under camera
-        eventRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position - offset)); 
+        walkRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position - offset));
+        jumpRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        landRef1.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        landRef2.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position - offset));
     }
 
     public void DisplayCursor(bool display)
@@ -332,6 +352,6 @@ public class Controller : MonoBehaviour
     public void PlayFootstep()
     {
         //FootstepPlayer.PlayRandom();
-        eventRef.start();
+        walkRef.start();
     }
 }
