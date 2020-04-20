@@ -76,6 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ccb94bf93077498982c16ee690870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootPath: event:/Player/player_throw_grenade
+  shootLongPath: event:/Player/player_rifle_shoot_long
+  reloadPath: event:/Player/player_pistol_reload
   triggerType: 1
   weaponType: 1
   fireRate: 0.3
@@ -208,15 +211,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100114, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100116, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100060, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100120, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -273,7 +276,7 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
-    - target: {fileID: 100006, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100118, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
@@ -281,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300004, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
     - target: {fileID: 100002, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -485,23 +492,19 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100114, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100000, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100116, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100008, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 100120, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100060, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 13700002, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300004, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
-    - target: {fileID: 100118, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
+    - target: {fileID: 100006, guid: 9c5a36cef55a3614a866b354444f08a5, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}

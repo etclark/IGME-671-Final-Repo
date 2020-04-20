@@ -13,11 +13,14 @@ public class Weapon : MonoBehaviour
 {
     //FMOD VARIABLES
     [FMODUnity.EventRef]
-    public string eventPath1;
+    public string shootPath;
     [FMODUnity.EventRef]
-    public string eventPath2;
-    private FMOD.Studio.EventInstance eventRef1;
-    private FMOD.Studio.EventInstance eventRef2;
+    public string shootLongPath;
+    [FMODUnity.EventRef]
+    public string reloadPath;
+    private FMOD.Studio.EventInstance shootRef;
+    private FMOD.Studio.EventInstance shootLongRef;
+    private FMOD.Studio.EventInstance reloadRef;
 
     static RaycastHit[] s_HitInfoBuffer = new RaycastHit[8];
 
@@ -146,8 +149,9 @@ public class Weapon : MonoBehaviour
         }
 
         //FMOD INITIALIZE EVENT
-        //eventRef1 = FMODUnity.RuntimeManager.CreateInstance(eventPath1);
-        //eventRef2 = FMODUnity.RuntimeManager.CreateInstance(eventPath2);
+        shootRef = FMODUnity.RuntimeManager.CreateInstance(shootPath);
+        shootLongRef = FMODUnity.RuntimeManager.CreateInstance(shootLongPath);
+        reloadRef = FMODUnity.RuntimeManager.CreateInstance(reloadPath);
     }
 
     public void PickedUp(Controller c)
@@ -223,6 +227,12 @@ public class Weapon : MonoBehaviour
         
         WeaponInfoUI.Instance.UpdateClipInfo(this);
 
+        //PLAY RIFLE LONG SOUND ONLY ONCE
+        //if (m_CurrentState == WeaponState.Idle && triggerType == TriggerType.Auto)
+        //{
+        //    shootLongRef.start();
+        //}
+
         //the state will only change next frame, so we set it right now.
         m_CurrentState = WeaponState.Firing;
         
@@ -232,7 +242,12 @@ public class Weapon : MonoBehaviour
         m_Source.PlayOneShot(FireAudioClip);
 
         //PLAY FMOD SHOOTING SOUNDS
-        //eventRef1.start();
+        shootRef.start();
+        if (triggerType == TriggerType.Auto)
+        {
+            shootLongRef.start();
+
+        }
 
         CameraShaker.Instance.Shake(0.2f, 0.05f * advancedSettings.screenShakeMultiplier);
 
@@ -339,7 +354,7 @@ public class Weapon : MonoBehaviour
             m_Source.PlayOneShot(ReloadAudioClip);
 
             //PLAY FMOD RELOAD SOUNDS
-            //eventRef2.start();
+            reloadRef.start();
         }
 
         int chargeInClip = Mathf.Min(remainingBullet, clipSize - m_ClipContent);
@@ -388,8 +403,9 @@ public class Weapon : MonoBehaviour
         }
 
         //UPDATE WHERE SOUND COMES FROM
-        //eventRef1.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
-        //eventRef2.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        shootRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        shootLongRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        reloadRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
     }
 
     void UpdateControllerState()
@@ -411,9 +427,19 @@ public class Weapon : MonoBehaviour
         {
             var oldState = m_CurrentState;
             m_CurrentState = newState;
-            
+
+            //if (m_CurrentState != WeaponState.Firing)
+            //{
+            //    //FINISHED FIRING SO STOP RIFLE LONG SOUND
+            //    if (triggerType == TriggerType.Auto)
+            //    {
+            //        shootLongRef.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            //    }
+            //}
+
             if (oldState == WeaponState.Firing)
-            {//we just finished firing, so check if we need to auto reload
+            {
+                //we just finished firing, so check if we need to auto reload
                 if(m_ClipContent == 0)
                     Reload();
             }
@@ -521,6 +547,11 @@ public class WeaponEditor : Editor
    SerializedProperty m_PrefabRayTrailProp;
    SerializedProperty m_AmmoDisplayProp;
 
+    //FMOD PROPERTIES
+   SerializedProperty shootPath;
+   SerializedProperty shootLongPath;
+   SerializedProperty reloadPath;
+
    void OnEnable()
    {
        m_TriggerTypeProp = serializedObject.FindProperty("triggerType");
@@ -540,6 +571,11 @@ public class WeaponEditor : Editor
        m_ReloadAudioClipProp = serializedObject.FindProperty("ReloadAudioClip");
        m_PrefabRayTrailProp = serializedObject.FindProperty("PrefabRayTrail");
        m_AmmoDisplayProp = serializedObject.FindProperty("AmmoDisplay");
+
+        //FMOD PROPERTIES LOCATED
+       shootPath = serializedObject.FindProperty("shootPath");
+       shootLongPath = serializedObject.FindProperty("shootLongPath");
+       reloadPath = serializedObject.FindProperty("reloadPath");
    }
 
    public override void OnInspectorGUI()
@@ -553,6 +589,11 @@ public class WeaponEditor : Editor
         EditorGUILayout.PropertyField(m_ClipSizeProp);
         EditorGUILayout.PropertyField(m_DamageProp);
         EditorGUILayout.PropertyField(m_AmmoTypeProp);
+
+        //FMOD PROPERTIES INITIALIZED
+        EditorGUILayout.PropertyField(shootPath);
+        EditorGUILayout.PropertyField(shootLongPath);
+        EditorGUILayout.PropertyField(reloadPath);
 
         if (m_WeaponTypeProp.intValue == (int)Weapon.WeaponType.Projectile)
         {

@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ccb94bf93077498982c16ee690870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventPath1: 
-  eventPath2: 
+  shootPath: event:/Player/player_pistol_shoot
+  shootLongPath: event:/Player/player_rifle_shoot_long
+  reloadPath: event:/Player/player_pistol_reload
   triggerType: 1
   weaponType: 0
   fireRate: 0.3
