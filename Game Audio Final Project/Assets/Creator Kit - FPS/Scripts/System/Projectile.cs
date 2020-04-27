@@ -11,7 +11,13 @@ public class Projectile : MonoBehaviour
     public float ReachRadius = 5.0f;
     public float damage = 10.0f;
     public AudioClip DestroyedSound;
-    
+
+    //FMOD VARIABLES
+    [FMODUnity.EventRef]
+    public string explodePath;
+
+    private FMOD.Studio.EventInstance explodeRef;
+
     //TODO : maybe pool that somewhere to not have to create one for each projectile.
     public GameObject PrefabOnDestruction;
 
@@ -68,6 +74,14 @@ public class Projectile : MonoBehaviour
         m_Owner.ReturnProjecticle(this);
 
         var source = WorldAudioPool.GetWorldSFXSource();
+
+        //FMOD INITIALIZE EVENTS
+        explodeRef = FMODUnity.RuntimeManager.CreateInstance(explodePath);
+        //INITIALIZE WHERE SOUND COMES FROM
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(explodeRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
+
+        //PLAY EXPLODE SOUND
+        explodeRef.start();
 
         source.transform.position = position;
         source.pitch = Random.Range(0.8f, 1.1f);

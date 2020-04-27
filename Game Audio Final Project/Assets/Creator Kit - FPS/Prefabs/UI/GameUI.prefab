@@ -1798,6 +1798,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PositiveSound: {fileID: 8300000, guid: 61507aebad0cf874aa8c0d42fcaa4e24, type: 3}
   NegativeSound: {fileID: 8300000, guid: dae5819be412de34a926b07afa6b8597, type: 3}
+  confirmPath: event:/UI/ui_confirm
+  negativePath: event:/UI/ui_negative
 --- !u!1 &2625390798215785937
 GameObject:
   m_ObjectHideFlags: 0

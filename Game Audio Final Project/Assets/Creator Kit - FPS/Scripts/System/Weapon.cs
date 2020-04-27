@@ -152,6 +152,11 @@ public class Weapon : MonoBehaviour
         shootRef = FMODUnity.RuntimeManager.CreateInstance(shootPath);
         shootLongRef = FMODUnity.RuntimeManager.CreateInstance(shootLongPath);
         reloadRef = FMODUnity.RuntimeManager.CreateInstance(reloadPath);
+
+        //INITIALIZE WHERE SOUND COMES FROM
+        shootRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        shootLongRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
+        reloadRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
     }
 
     public void PickedUp(Controller c)
@@ -245,7 +250,7 @@ public class Weapon : MonoBehaviour
         shootRef.start();
         if (triggerType == TriggerType.Auto)
         {
-            shootLongRef.start();
+            //shootLongRef.start();
 
         }
 

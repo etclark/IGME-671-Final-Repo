@@ -11,6 +11,12 @@ public class Lock : GameTrigger
     public string keyType;
     public Text KeyNameText;
 
+    //FMOD VARIABLES
+    [FMODUnity.EventRef]
+    public string lockPath;
+
+    private FMOD.Studio.EventInstance lockRef;
+
 
     Canvas m_Canvas;
 
@@ -20,6 +26,11 @@ public class Lock : GameTrigger
 
         m_Canvas = KeyNameText.GetComponentInParent<Canvas>();
         m_Canvas.gameObject.SetActive(false);
+
+        //FMOD INITIALIZE EVENTS
+        lockRef = FMODUnity.RuntimeManager.CreateInstance(lockPath);
+        //INITIALIZE WHERE SOUND COMES FROM
+        FMODUnity.RuntimeManager.AttachInstanceToGameObject(lockRef, GetComponent<Transform>(), GetComponent<Rigidbody>());
     }
 
     void OnTriggerEnter(Collider other)
@@ -32,6 +43,10 @@ public class Lock : GameTrigger
         {
             keychain.UseKey(keyType);
             Opened();
+
+            //PLAY DOOR UNLOCK SOUND
+            lockRef.start();
+
             //just destroy the script, if it's on the door we don't want to destroy the door.
             Destroy(this);
             Destroy(m_Canvas.gameObject);
@@ -55,8 +70,10 @@ public class LockEditor : Editor
 {
     SerializedProperty m_ActionListProperty;
     SerializedProperty m_KeyNameTextProperty;
+    SerializedProperty lockPath;
     Lock m_Lock;
 
+  
     int m_KeyTypeIndex = -1;
     string[] m_AllKeyType = new string[0];
 
@@ -65,6 +82,7 @@ public class LockEditor : Editor
         m_Lock = target as Lock;
         m_ActionListProperty = serializedObject.FindProperty("actions");
         m_KeyNameTextProperty = serializedObject.FindProperty("KeyNameText");
+        lockPath = serializedObject.FindProperty("lockPath");
 
         var allKeys = Resources.FindObjectsOfTypeAll<Key>();
         foreach (var key in allKeys)
@@ -81,6 +99,7 @@ public class LockEditor : Editor
     public override void OnInspectorGUI()
     {
         EditorGUILayout.PropertyField(m_KeyNameTextProperty);
+        EditorGUILayout.PropertyField(lockPath);
         EditorGUILayout.PropertyField(m_ActionListProperty, true);
 
         if (m_AllKeyType.Length > 0)

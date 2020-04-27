@@ -45,6 +45,9 @@ public class ImpactManager : MonoBehaviour
 
         //FMOD INITIALIZE EVENTS
         impactRef = FMODUnity.RuntimeManager.CreateInstance(impactPath);
+
+        //INITIALIZE WHERE SOUND COMES FROM
+        impactRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
     }
 
     public void PlayImpact(Vector3 position, Vector3 normal, Material material = null)
@@ -59,7 +62,7 @@ public class ImpactManager : MonoBehaviour
         sys.gameObject.transform.position = position;
         sys.gameObject.transform.forward = normal;
 
-        //INITIALIZE WHERE SOUND COMES FROM
+        //UPDATE WHERE SOUND COMES FROM
         impactRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
 
         sys.gameObject.SetActive(true);

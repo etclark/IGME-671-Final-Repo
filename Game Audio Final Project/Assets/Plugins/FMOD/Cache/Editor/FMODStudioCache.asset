@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8822114256610855994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-8800322516979558244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,14 +32,14 @@ MonoBehaviour:
   Path: event:/Ambient/ambient_brain
   guid: 03c2d256b3a93949b29b6be1fc57f875
   Banks:
-  - {fileID: -3865912904102613390}
-  IsStream: 0
+  - {fileID: 6328165280902077300}
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 24713
 --- !u!114 &-8510370810539001976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38,7 +55,7 @@ MonoBehaviour:
   Path: event:/Blood Cell/blood_cell_hit
   guid: 4e00c3d43950834ebc6c7308cd6855b7
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -61,14 +78,14 @@ MonoBehaviour:
   Path: event:/UI/ui_confirm
   guid: 992a74f3983da14ab12eea6749412bba
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
 --- !u!114 &-8261427241748851081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,14 +101,31 @@ MonoBehaviour:
   Path: event:/UI/ui_select
   guid: b5d75237d136aa47b5d86ec06e5ebb35
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
+--- !u!114 &-7630819739315409487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &-7003374538669087926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,14 +158,14 @@ MonoBehaviour:
   Path: event:/Ambient/ambient_heartbeat
   guid: 2b1c221f598d4a49817c6f63f2843ff0
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2600
 --- !u!114 &-6485652409893431160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +198,7 @@ MonoBehaviour:
   Path: event:/Player/player_land
   guid: d350356bd81d4540aba812e0c334faf5
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -172,6 +206,41 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &-5198004787906150900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-4911055395239491654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637235831981221301
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-4779359047795050604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,14 +256,14 @@ MonoBehaviour:
   Path: event:/Player/player_rifle_reload
   guid: c50e57ac8e00264b877b13ad2ae50d14
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3310
+  Length: 2560
 --- !u!114 &-4741140862143699585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +297,7 @@ MonoBehaviour:
   Path: event:/Player/player_rifle_shoot_short
   guid: d6c6af6ba9f40445b6e1017b051ac0e0
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -269,7 +338,7 @@ MonoBehaviour:
   Path: event:/Player/player_pistol_shoot
   guid: 0f1112c4bebd2a42aa3ea298bdc45c1d
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -292,7 +361,7 @@ MonoBehaviour:
   Path: event:/Germ/germ_idle
   guid: 8249892665bf0a41a07caf4dde4a337f
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -300,6 +369,41 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 30908
+--- !u!114 &-1951454520117899594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
+--- !u!114 &-1745989020385996557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637235001952540783
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-1580314908517977030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +419,7 @@ MonoBehaviour:
   Path: event:/Player/player_jump
   guid: 79a47a2286382047a416cdb75b0c00b7
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -346,6 +450,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1500
+--- !u!114 &-507843308530135219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &-472885345691769452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,14 +482,32 @@ MonoBehaviour:
   Path: event:/UI/ui_negative
   guid: 21c198818a86654a987229bd37db8986
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 500
+--- !u!114 &-116411489770490914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637234986507069297
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,7 +522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 6012803476786019835}
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   EditorEvents:
   - {fileID: -8800322516979558244}
   - {fileID: 7414586703541048312}
@@ -413,10 +552,10 @@ MonoBehaviour:
   - {fileID: -4277257036124612263}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   StringsBanks:
   - {fileID: 6012803476786019835}
-  stringsBankWriteTime: 637229802190830758
+  stringsBankWriteTime: 637235839043113115
   cacheVersion: 3
 --- !u!114 &113555669638068704
 MonoBehaviour:
@@ -433,7 +572,7 @@ MonoBehaviour:
   Path: event:/Misc/misc_key_pickup
   guid: 0b9210b413f133479d2ad3b6424e3f0f
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -456,7 +595,7 @@ MonoBehaviour:
   Path: event:/Player/player_throw_grenade
   guid: d29f86ceb497e045a1a7d4f25a8adceb
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -479,15 +618,33 @@ MonoBehaviour:
   Path: event:/Player/player_rifle_shoot_long
   guid: c758a05f8e5f5e4c8757e41a213ea41f
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: -7003374538669087926}
+  - {fileID: -507843308530135219}
   MinDistance: 1
   MaxDistance: 20
   Length: 11000
+--- !u!114 &1025205695984083738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637235032443077166
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &1639365927056740052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,7 +683,7 @@ MonoBehaviour:
   Path: event:/Misc/misc_bullet_hit
   guid: 96b433455ece7e43b8f4cec006b664ba
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -549,7 +706,7 @@ MonoBehaviour:
   Path: event:/Germ/germ_death
   guid: 5fc8d5267eb7794eb37350c4185be7c3
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -557,6 +714,23 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &2739568400004386357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &4614440397910808856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,7 +746,7 @@ MonoBehaviour:
   Path: event:/Blood Cell/blood_cell_death
   guid: 21cf860f7c1e9d4ca9e4e942504dcb0c
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -598,6 +772,23 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5122169441500686075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/player_rifle_shoot_long/Rifle Firing
+  m_EditorClassIdentifier: 
+  Name: Rifle Firing
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 0
 --- !u!114 &5349258213125272859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,7 +804,7 @@ MonoBehaviour:
   Path: event:/Blood Cell/blood_cell_idle
   guid: 50a360aa1c03cb4f9b0d769203c590b4
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -636,14 +827,14 @@ MonoBehaviour:
   Path: event:/Ambient/ambient_acid_pool
   guid: 29367b8b9ea18b42a36b0188b2950da2
   Banks:
-  - {fileID: -3865912904102613390}
-  IsStream: 0
+  - {fileID: 6328165280902077300}
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 28180
 --- !u!114 &6012803476786019835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,11 +849,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/Master/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637229802190830758
+  lastModified: 637235839043113115
   LoadResult: 0
   FileSizes:
   - Name: Desktop
     Value: 1944
+  Exists: 1
+--- !u!114 &6328165280902077300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637235839042983453
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
 --- !u!114 &7074332162520365515
 MonoBehaviour:
@@ -679,7 +888,7 @@ MonoBehaviour:
   Path: event:/Germ/germ_hit
   guid: 153bed1a34ba034e864ae7861ea951d2
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -702,14 +911,14 @@ MonoBehaviour:
   Path: event:/Ambient/ambient_general
   guid: 05954d9688669c4c9b0599809d64ca55
   Banks:
-  - {fileID: -3865912904102613390}
-  IsStream: 0
+  - {fileID: 6328165280902077300}
+  IsStream: 1
   Is3D: 1
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 49500
 --- !u!114 &7734095242583538699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,14 +934,32 @@ MonoBehaviour:
   Path: event:/Misc/misc_grenade_explode
   guid: 70dee71bbae4a44ab7d3099666231bd7
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 2000
+--- !u!114 &7762208940306369051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637235836410952834
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &8166463744393718456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +975,7 @@ MonoBehaviour:
   Path: event:/Player/player_pistol_reload
   guid: d56b994796eaff499b23b72c0a07be63
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -779,6 +1006,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &8457077348745614130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/Master/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637234972018869229
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &8467226167859756573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,14 +1039,14 @@ MonoBehaviour:
   Path: event:/Misc/misc_door_unlock
   guid: 66321f86a54b074b94a8adc782ca073a
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 0
+  Length: 8006
 --- !u!114 &8620955492988335725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +1062,7 @@ MonoBehaviour:
   Path: event:/Player/player_walk
   guid: 1a5f0159140b1343a277152c2f613af2
   Banks:
-  - {fileID: -3865912904102613390}
+  - {fileID: 6328165280902077300}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1

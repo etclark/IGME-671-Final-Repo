@@ -51,6 +51,7 @@ MonoBehaviour:
   ReachRadius: 3
   damage: 10
   DestroyedSound: {fileID: 8300000, guid: 4a9a06c9694a13543bb6addd4101fcb1, type: 3}
+  explodePath: event:/Misc/misc_grenade_explode
   PrefabOnDestruction: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
 --- !u!54 &3089532698898589659

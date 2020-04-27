@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{6873da15-33b5-4794-ae7c-db874de381d1}">
+		<property name="assetPath">
+			<value>ambient_brain_hum1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>24.986258503401359</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0329d4db-ffa9-43b1-aeec-f6413e734f27}</destination>
+		</relationship>
+	</object>
+</objects>

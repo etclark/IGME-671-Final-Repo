@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{84a42b99-94e6-4387-96bf-e6e29f1d2523}">
+		<property name="assetPath">
+			<value>ambient_brain_zap_10.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.70163265306122446</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0329d4db-ffa9-43b1-aeec-f6413e734f27}</destination>
+		</relationship>
+	</object>
+</objects>
