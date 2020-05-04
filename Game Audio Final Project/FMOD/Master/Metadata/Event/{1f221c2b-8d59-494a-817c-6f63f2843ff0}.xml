@@ -53,7 +53,7 @@
 			<destination>{16f7754a-eccd-4889-853e-f9b97e0c6d87}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4646b7c1-2acd-4cb8-ad21-519382877735}</destination>
+			<destination>{e4cce6ad-90e0-4d75-bc6e-9b08e3aa98ee}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{bf40365f-81ae-4b2f-90c5-fbfe0349acea}" />
@@ -100,6 +100,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{598e8d35-725d-4be8-95f2-288c323a1879}">
+		<property name="volume">
+			<value>-6</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -146,7 +149,7 @@
 	<object class="SpatialiserEffect" id="{ae31b0ac-4f81-4a15-b173-fa3a3fa8546b}" />
 	<object class="MixerSend" id="{2fd18941-c662-4bf3-a739-dc1061a41331}">
 		<property name="level">
-			<value>-45</value>
+			<value>-47</value>
 		</property>
 		<property name="inputFormat">
 			<value>1</value>

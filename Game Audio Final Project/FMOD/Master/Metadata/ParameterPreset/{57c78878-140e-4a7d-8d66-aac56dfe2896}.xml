@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{57c78878-140e-4a7d-8d66-aac56dfe2896}">
+		<property name="name">
+			<value>Distance_To_Acid</value>
+		</property>
+		<relationship name="folder">
+			<destination>{a04b9396-070e-47ea-9fc6-9ac13d692050}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{bb1c386b-a86d-4ea3-b614-53fb73568045}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{bb1c386b-a86d-4ea3-b614-53fb73568045}">
+		<property name="maximum">
+			<value>20</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

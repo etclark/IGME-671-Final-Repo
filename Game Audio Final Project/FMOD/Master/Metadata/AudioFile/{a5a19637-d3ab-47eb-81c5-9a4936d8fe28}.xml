@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{a5a19637-d3ab-47eb-81c5-9a4936d8fe28}">
+		<property name="assetPath">
+			<value>player_walk_slosh_large_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.3474603174603175</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0329d4db-ffa9-43b1-aeec-f6413e734f27}</destination>
+		</relationship>
+	</object>
+</objects>

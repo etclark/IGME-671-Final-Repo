@@ -2899,6 +2899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b9f2314804785488d16fd9b43df1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausePath: snapshot:/Paused
 --- !u!1 &5405732269426070832
 GameObject:
   m_ObjectHideFlags: 0

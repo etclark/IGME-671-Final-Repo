@@ -53,7 +53,7 @@
 			<destination>{842c233c-0b71-4f7c-8980-4c6aeda3f028}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4646b7c1-2acd-4cb8-ad21-519382877735}</destination>
+			<destination>{b1b3a670-cb55-4c8f-b923-b1d770009aa4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{1a5572e6-4d40-49d2-8d80-eb65a516851d}" />
@@ -108,11 +108,17 @@
 		<property name="timelockedOffset">
 			<value>1.95</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{16bffc65-3e26-4991-a2ce-6377c12e473b}</destination>
+		</relationship>
 		<relationship name="audioFile">
 			<destination>{a6c3f88f-5179-44cb-986b-32c1fa22f8a0}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{e306002d-3724-4bfd-b875-9942b18863ad}">
+		<property name="volume">
+			<value>-2.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -134,6 +140,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{3c0aa804-1425-4ae0-9bd4-dc3c313acfbd}" />
 	<object class="MixerBusFader" id="{fb898b90-7ce1-4e58-89ce-850b4cacfcbe}" />
+	<object class="ADSRModulator" id="{16bffc65-3e26-4991-a2ce-6377c12e473b}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="peakValue">
+			<value>20</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{32046974-8454-487d-9781-b04f9c64941c}">
 		<relationship name="effects">
 			<destination>{b224e884-e61e-4f97-ac29-4b257f8b9d18}</destination>

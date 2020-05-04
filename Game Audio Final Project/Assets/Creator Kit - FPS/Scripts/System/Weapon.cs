@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     private FMOD.Studio.EventInstance shootRef;
     private FMOD.Studio.EventInstance shootLongRef;
     private FMOD.Studio.EventInstance reloadRef;
+    private bool firstShot;
 
     static RaycastHit[] s_HitInfoBuffer = new RaycastHit[8];
 
@@ -152,6 +153,7 @@ public class Weapon : MonoBehaviour
         shootRef = FMODUnity.RuntimeManager.CreateInstance(shootPath);
         shootLongRef = FMODUnity.RuntimeManager.CreateInstance(shootLongPath);
         reloadRef = FMODUnity.RuntimeManager.CreateInstance(reloadPath);
+        firstShot = true;
 
         //INITIALIZE WHERE SOUND COMES FROM
         shootRef.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(Camera.allCameras[0].transform.position));
@@ -232,12 +234,6 @@ public class Weapon : MonoBehaviour
         
         WeaponInfoUI.Instance.UpdateClipInfo(this);
 
-        //PLAY RIFLE LONG SOUND ONLY ONCE
-        //if (m_CurrentState == WeaponState.Idle && triggerType == TriggerType.Auto)
-        //{
-        //    shootLongRef.start();
-        //}
-
         //the state will only change next frame, so we set it right now.
         m_CurrentState = WeaponState.Firing;
         
@@ -248,10 +244,11 @@ public class Weapon : MonoBehaviour
 
         //PLAY FMOD SHOOTING SOUNDS
         shootRef.start();
-        if (triggerType == TriggerType.Auto)
-        {
-            //shootLongRef.start();
 
+        if (triggerType == TriggerType.Auto && firstShot)
+        {
+            firstShot = false;
+            shootLongRef.start();
         }
 
         CameraShaker.Instance.Shake(0.2f, 0.05f * advancedSettings.screenShakeMultiplier);
@@ -349,6 +346,7 @@ public class Weapon : MonoBehaviour
         {
             //No more bullet, so we disable the gun so it's not displayed anymore and change weapon
             gameObject.SetActive(false);
+            shootLongRef.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             return;
         }
 
@@ -433,15 +431,6 @@ public class Weapon : MonoBehaviour
             var oldState = m_CurrentState;
             m_CurrentState = newState;
 
-            //if (m_CurrentState != WeaponState.Firing)
-            //{
-            //    //FINISHED FIRING SO STOP RIFLE LONG SOUND
-            //    if (triggerType == TriggerType.Auto)
-            //    {
-            //        shootLongRef.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            //    }
-            //}
-
             if (oldState == WeaponState.Firing)
             {
                 //we just finished firing, so check if we need to auto reload
@@ -462,6 +451,15 @@ public class Weapon : MonoBehaviour
             }
             else
                 Fire();
+        }
+        else if (!triggerDown)
+        {
+            //FINISHED FIRING SO STOP RIFLE LONG SOUND
+            if (triggerType == TriggerType.Auto)
+            {
+                firstShot = true;
+                shootLongRef.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            }
         }
     }
     

@@ -53,7 +53,7 @@
 			<destination>{f591ad7b-7e75-4123-b1b4-5d48bb51ded0}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4646b7c1-2acd-4cb8-ad21-519382877735}</destination>
+			<destination>{b1b3a670-cb55-4c8f-b923-b1d770009aa4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{37c977e5-b678-4d40-8a5b-ab15a9aae403}" />
@@ -100,6 +100,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{1a25931b-e699-4f30-b1f0-97c9c710f702}">
+		<property name="volume">
+			<value>-3</value>
+		</property>
 		<property name="name">
 			<value>Shot</value>
 		</property>

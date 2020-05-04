@@ -29,6 +29,11 @@ public class Controller : MonoBehaviour
     [FMODUnity.EventRef]
     public string landPath2;
 
+    //ACIDPOOL VARIABLES
+    public Transform AcidPoolPosition;
+    private float acidDist;
+
+
     private FMOD.Studio.EventInstance walkRef;
     private FMOD.Studio.EventInstance jumpRef;
     private FMOD.Studio.EventInstance landRef1;
@@ -265,6 +270,15 @@ public class Controller : MonoBehaviour
             landRef1.start();
             landRef2.start();
         }
+
+        //UPDATE ACIDPOOL SOUNDS
+        acidDist = Vector3.Distance(CameraPosition.transform.position, AcidPoolPosition.transform.position);
+        if (acidDist >= 20.0f)
+        {
+            acidDist = 19.0f;
+        }
+        walkRef.setParameterByName("Distance_To_Acid",acidDist,false);
+        landRef2.setParameterByName("Distance_To_Acid", acidDist, false);
 
         //UPDATE WHERE SOUND COMES FROM
         Vector3 offset = new Vector3 (0.0f,1.5f,0.0f);//1.5 units under camera
